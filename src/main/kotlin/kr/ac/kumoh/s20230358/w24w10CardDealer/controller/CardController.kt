@@ -11,7 +11,7 @@ class CardController(private val service: CardService) {
     fun getRandomCards(model: Model): String{
         service.dealCard()
         val cards = service.getAllCards()
-         model.addAttribute("cards",cards[0].imageName)
+         model.addAttribute("cards",cards.map { it.imageName })
          // model.addAttribute("suit","spades")
         //model.addAttribute("rank","jack")
 
