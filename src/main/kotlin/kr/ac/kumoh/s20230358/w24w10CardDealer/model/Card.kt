@@ -5,5 +5,12 @@ data class Card(
     val suit: String,
 ){
     val imageName: String
-        get() = "${rank}_of_${suit}.png"
+        get(){
+            val name = "${rank}_of_${suit}"
+            return if (rank in setOf("jack", "queen", "king")) {
+                "${name}2.png"
+            } else {
+                "${name}.png"
+            }
+        }
 }
